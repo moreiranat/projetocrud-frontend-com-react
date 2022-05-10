@@ -4,13 +4,11 @@ import './App.css';
 export default class App extends React.Component {
 
 state = {
-  description: "",
-  priority: "",
-  categoryName: ""
+  name: ""
 }
 
 create = () => {
-  alert("A tarefa foi salva!");
+  console.log("Nome da Categoria: " + this.state.name);
 }
 
   render() {
@@ -20,7 +18,7 @@ create = () => {
         
         <div className='row'>
           <div className='col-6 offset-md-3'>
-            <h1 class="display-3 text-center">Salvar Tarefa</h1>
+            <h1 class="display-3 text-center">Salvar Categoria</h1>
           </div>
         </div>
 
@@ -29,16 +27,8 @@ create = () => {
             
             <form action='' className='form'>
               <div>
-                <label className='form-label'>Descrição: </label>
-                <input className='form-control' type="text" value={this.state.description} onChange={(e) => {this.setState({description: e.target.value})}} />
-                
-                <br/>
-                <label className='form-label'>Prioridade: </label>
-                <input className='form-control' type="text" value={this.state.priority} onChange={(e) => {this.setState({priority: e.target.value})}} />
-                
-                <br/>
-                <label className='form-label'>Nome da Categoria: </label>              
-                <input className='form-control' type="text" value={this.state.categoryName} onChange={(e) => {this.setState({categoryName: e.target.value})}} />
+                <label className='form-label'>Nome da Categoria:</label>
+                <input className='form-control' type="text" value={this.state.name} onChange={(e) => {this.setState({name: e.target.value})}} />
               </div>
 
               <br/>
