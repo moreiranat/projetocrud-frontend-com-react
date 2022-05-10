@@ -10,7 +10,7 @@ state = {
 }
 
 create = () => {
-  alert("A tarefa foi salva!");
+  alert("A tarefa -" + this.state.description + "- foi salva!");
 }
 
   render() {
