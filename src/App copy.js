@@ -27,7 +27,7 @@ create = () => {
             
             <form action='' className='form'>
               <div>
-                <label className='form-label'>Nome da Categoria</label>
+                <label className='form-label'>Nome da Categoria:</label>
                 <input className='form-control' type="text" value={this.state.name} onChange={(e) => {this.setState({name: e.target.value})}} />
               </div>
 
