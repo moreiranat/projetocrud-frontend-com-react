@@ -42,8 +42,7 @@ create = () => {
               </div>
 
               <br/>
-              
-               <input className="form-control btn btn-primary " type="button" value="Salvar" onClick={this.create}/>
+              <input className="form-control btn btn-primary " type="button" value="Salvar" onClick={this.create}/>
               
             </form>
           </div>
