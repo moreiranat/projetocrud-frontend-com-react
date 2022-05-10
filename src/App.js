@@ -8,7 +8,7 @@ state = {
 }
 
 create = () => {
-  console.log("Nome da Categoria: " + this.state.name);
+  alert("A categoria -" + this.state.name + "- foi salva!");;
 }
 
   render() {
