@@ -1,9 +1,24 @@
 .container {
-    background-color: rgba(213, 181, 149, 0.746);
+    background-color: rgba(149, 177, 213, 0.746);
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
     height: 60vh;
     width: 50vw;
+  }
+
+  .form {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .btn {
+    background-color: rgb(115, 133, 172);
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+    
+   
   }
 
  
