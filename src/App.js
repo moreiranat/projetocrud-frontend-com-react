@@ -8,8 +8,7 @@ export default class App extends React.Component {
   }
 
   create = () => {
-    console.log(this.state);
-    
+    console.log(this.state);  
   }
 
   render() {
