@@ -8,7 +8,8 @@ export default class App extends React.Component {
   }
 
   create = () => {
-    alert("A categoria -" + this.state.name + "- foi salva!");
+    console.log(this.state);
+    
   }
 
   render() {
