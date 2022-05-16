@@ -44,7 +44,7 @@ class UpdateCategory extends React.Component {
                               </div>
                             </div>
                             <button onClick={this.create} type="button" className="btn btn-warning">
-                              <i className="pi pi-save"></i> Salvar
+                              <i className="pi pi-save"></i> Atualizar
                             </button>
                             <button onClick={this.cancel} type="button" className="btn btn-danger">
                               <i className="pi pi-times"></i> Cancelar
