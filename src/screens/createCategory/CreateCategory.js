@@ -28,9 +28,9 @@ class CreateCategory extends React.Component {
                 <br />
                 <br />
 
-                <div class="card border-success mb-3" style={this.styles.cardBorder}>
+                <div className="card border-success mb-3" style={this.styles.cardBorder}>
                   <h3 className="card-header">Cadastrar Categoria</h3>
-                  <div class="card-body">
+                  <div className="card-body">
       
                     <div className='row'>
                       <div className='col-lg-12' >

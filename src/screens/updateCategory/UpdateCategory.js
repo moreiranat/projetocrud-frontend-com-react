@@ -28,16 +28,16 @@ class UpdateCategory extends React.Component {
                 <br />
                 <br />
   
-                <div class="card border-primary mb-3" style={this.styles.cardBorder}>
-                  <h3 class="card-header">Atualizar Categoria</h3>
-                  <div class="card-body">
+                <div className="card border-primary mb-3" style={this.styles.cardBorder}>
+                  <h3 className="card-header">Atualizar Categoria</h3>
+                  <div className="card-body">
       
                     <div className='row'>
                       <div className='col-lg-12' >
                         <div className='bs-component'>
 
-                            <div class="form-group">
-                              <label class="form-label mt-4">Categoria:</label>
+                            <div className="form-group">
+                              <label className="form-label mt-4">Categoria:</label>
                               <div className="form-floating mb-3">
                                 <input type="text" className="form-control" id="floatingInput" placeholder="Digite o Nome da Categoria" value={this.state.name} onChange={(e) => { this.setState({name: e.target.value })}} />
                                 <label htmlFor="floatingInput">Edite o Nome da Categoria</label>

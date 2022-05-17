@@ -30,9 +30,9 @@ class UpdateTask extends React.Component {
                 <br />
                 <br />
 
-                <div class="card border-warning mb-3" style={this.styles.cardText}>
-                  <h3 class="card-header text-center">Atualizar Tarefa</h3>
-                  <div class="card-body">
+                <div className="card border-warning mb-3" style={this.styles.cardText}>
+                  <h3 className="card-header text-center">Atualizar Tarefa</h3>
+                  <div className="card-body">
   
                     <div className='row'>
                       <div className='col-lg-12' >
