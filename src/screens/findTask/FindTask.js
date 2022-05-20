@@ -1,18 +1,18 @@
 import React from 'react';
-import './UpdateTask.css';
+import './FindTask.css';
 
 import { withRouter } from 'react-router-dom';
 
-class UpdateTask extends React.Component {
+class FindTask extends React.Component {
 
     state = {
-      description: "Ir ao Dentista",
-      priority: "ALTA",
-      categoryName: "Saúde"
+      description: "",
+      priority: "",
+      categoryName: ""
     }
   
-    update = () => {
-      this.props.history.push('/updateTask/UpdateTask');
+    find = () => {
+      this.props.history.push('/findTask/FindTask');
     }
 
     cancel = () => {
@@ -27,8 +27,8 @@ class UpdateTask extends React.Component {
             <div className='col-md-6' style={this.styles.colMd6}>
               <div className="bs-docs-section">
 
-                <div className="card border-warning mb-3" style={this.styles.cardText}>
-                  <h3 className="card-header text-center">Atualizar Tarefa</h3>
+                <div className="card text-white bg-success mb-3" style={this.styles.cardText}>
+                  <h3 className="card-header text-center">Buscar Tarefa</h3>
                   <div className="card-body">
   
                     <div className='row'>
@@ -48,8 +48,9 @@ class UpdateTask extends React.Component {
                           <div class="form-group">
                             <label htmlFor="exampleSelect1" className="form-label mt-4">Nome da Categoria:</label>
                             <select className="form-select" id="exampleSelect1" value={this.state.categoryName} onChange={(e) => { this.setState({ categoryName: e.target.value }) }}>
-                              <option>Saúde</option>
+                              <option>Selecione uma opção</option>
                               <option>Lazer</option>
+                              <option>Saúde</option>
                               <option>Trabalho</option>
                               <option>Doméstico</option>
                               <option>Rotina</option>
@@ -57,8 +58,8 @@ class UpdateTask extends React.Component {
                           </div>
                           <br />
 
-                          <button onClick={this.update} type="button" className="btn btn-warning">
-                            <i className="pi pi-save"></i> Atualizar
+                          <button onClick={this.find} type="button" className="btn btn-warning">
+                            <i className="pi pi-save"></i> Buscar
                           </button>
                           <button onClick={this.cancel} type="button" className="btn btn-danger">
                             <i className="pi pi-times"></i> Cancelar
@@ -88,4 +89,4 @@ class UpdateTask extends React.Component {
     }
   } 
 
-  export default withRouter(UpdateTask);
+  export default withRouter(FindTask);

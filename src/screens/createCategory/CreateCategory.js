@@ -25,9 +25,6 @@ class CreateCategory extends React.Component {
             <div className='col-md-6' style={this.styles.colMd6}>
               <div className="bs-docs-section">
 
-                <br />
-                <br />
-
                 <div className="card border-success mb-3" style={this.styles.cardBorder}>
                   <h3 className="card-header">Cadastrar Categoria</h3>
                   <div className="card-body">
@@ -69,7 +66,8 @@ class CreateCategory extends React.Component {
         left: '300px'
       },
       cardBorder: {
-        outerWidth: '20rem' 
+        outerWidth: '20rem',
+        margin: '50px 0 0 0' 
       }
     }
 } 

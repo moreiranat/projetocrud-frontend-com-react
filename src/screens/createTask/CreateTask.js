@@ -27,9 +27,6 @@ class CreateTask extends React.Component {
           <div className='col-md-6' style={this.styles.colMd6}>
             <div className="bs-docs-section">
 
-              <br />
-              <br />
-
               <div className="card text-white bg-info mb-3" style={this.styles.cardText}>
                 <h3 className="card-header text-center">Cadastrar Tarefa</h3>
                 <div className="card-body">
@@ -85,7 +82,8 @@ class CreateTask extends React.Component {
       left: '300px'
     },
     cardText: {
-      outerWidth: '20rem'
+      outerWidth: '20rem',
+      margin: '50px 0 0 0'
     }
   }
 } 
