@@ -2,15 +2,25 @@ import React from 'react';
 import './DeleteCategory.css';
 
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 class DeleteCategory extends React.Component {
 
     state = {
-      name: ""
+      id: 0
     }
   
     delete = () => {
-      this.props.history.push('/deleteCategory/DeleteCategory');
+      axios.delete(`http://localhost:8080/api/category/${this.state.id}`,
+      ).then(response => 
+        {
+          console.log(response);
+        }
+      ).catch(error => 
+        {
+          console.log(error.response);
+        }
+      );
     }
 
     cancel = () => {
@@ -22,11 +32,11 @@ class DeleteCategory extends React.Component {
         
         <div className="container">
           <div className='row'>
-            <div className='col-md-6' style={this.styles.colMd6}>
+            <div className='col-md-12' style={this.styles.colMd12}>
               <div className="bs-docs-section">
 
                 <div className="card border-danger mb-3" style={this.styles.cardBorder}>
-                  <h3 className="card-header text-center">Deletar Categoria</h3>
+                  <h3 className="card-header text-center">Exclusão de Categoria</h3>
                   <div className="card-body">
       
                     <div className='row'>
@@ -34,12 +44,13 @@ class DeleteCategory extends React.Component {
                         <div className='bs-component'>
 
                             <div className="form-group">
-                              <label className="form-label mt-4">Categoria:</label>
+                              <label className="form-label mt-4">Id:</label>
                               <div className="form-floating mb-3">
-                                <input type="text" className="form-control" id="floatingInput" placeholder="Digite o Nome da Categoria" value={this.state.name} onChange={(e) => { this.setState({name: e.target.value })}} />
-                                <label htmlFor="floatingInput">Digite o Nome da Categoria que deseja deletar</label>
+                                <input type="text" className="form-control" id="inputId" placeholder="Digite o Id da Categoria" value={this.state.id} onChange={(e) => { this.setState({id: e.target.value })}} />
+                                <label htmlFor="inputId">Digite o Id da Categoria</label>
                               </div>
                             </div>
+                            
                             <br />
                             
                             <button onClick={this.delete} type="button" className="btn btn-outline-danger">
@@ -62,9 +73,8 @@ class DeleteCategory extends React.Component {
     }
   
     styles = {
-      colMd6: {
-        position: 'relative',
-        left: '300px'
+      colMd12: {
+        position: 'relative'
       },
       cardBorder: {
         outerWidth: '20rem',

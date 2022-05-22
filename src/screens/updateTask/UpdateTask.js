@@ -2,68 +2,100 @@ import React from 'react';
 import './UpdateTask.css';
 
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 class UpdateTask extends React.Component {
 
-    state = {
-      description: "Ir ao Dentista",
-      priority: "ALTA",
-      categoryName: "Saúde"
-    }
-  
-    update = () => {
-      this.props.history.push('/updateTask/UpdateTask');
-    }
+  state = {
+    id: 0,
+    description: '',
+    priority: '',
+    categoryId: 0,
+    status: ''
+  }
 
-    cancel = () => {
-      this.props.history.push('/');
+  update = () => {
+    axios.put(`http://localhost:8080/api/task/${this.state.id}`,
+      {
+        description: this.state.description,
+        priority: this.state.priority,
+        categoryId: this.state.categoryId,
+        status: this.state.status
+      }
+    ).then(response => {
+      console.log(response);
     }
-  
-    render() {
-      return (
-        
-        <div className="container">
-          <div className='row'>
-            <div className='col-md-6' style={this.styles.colMd6}>
-              <div className="bs-docs-section">
+    ).catch(error => {
+      console.log(error.response);
+    }
+    );
+  }
 
-                <div className="card border-warning mb-3" style={this.styles.cardText}>
-                  <h3 className="card-header text-center">Atualizar Tarefa</h3>
-                  <div className="card-body">
-  
-                    <div className='row'>
-                      <div className='col-lg-12' >
-                        <div className='bs-component'>
-  
+  cancel = () => {
+    this.props.history.push('/');
+  }
+
+  render() {
+    return (
+
+      <div className="container">
+        <div className='row'>
+          <div className='col-md-12' style={this.styles.colMd12}>
+            <div className="bs-docs-section">
+
+              <div className="card border-warning mb-3" style={this.styles.cardText}>
+                <h3 className="card-header text-center">Atualização de Tarefa</h3>
+                <div className="card-body">
+
+                  <div className='row'>
+                    <div className='col-lg-12' >
+                      <div className='bs-component'>
+
+                        <div className="form-group">
+                          <label className="col-form-label mt-4" htmlFor="inputId">Id:</label>
+                          <input type="text" className="form-control" placeholder="Digite o Id da Tarefa" id="inputId" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
+
+
                           <div className="form-group">
-                            <label className="col-form-label mt-4" htmlFor="inputDefault">Descrição:</label>
-                            <input type="text" className="form-control" placeholder="Descrição da Tarefa" id="inputDefault" value={this.state.description} onChange={(e) => { this.setState({ description: e.target.value }) }} />
-                          </div>
-  
-                          <div className="form-group">
-                            <label className="col-form-label mt-4" htmlFor="inputDefault">Prioridade:</label>
-                            <input type="text" className="form-control" placeholder="Prioridade da Tarefa" id="inputDefault" value={this.state.priority} onChange={(e) => { this.setState({ priority: e.target.value }) }} />
-                          </div>
-  
-                          <div class="form-group">
-                            <label htmlFor="exampleSelect1" className="form-label mt-4">Nome da Categoria:</label>
-                            <select className="form-select" id="exampleSelect1" value={this.state.categoryName} onChange={(e) => { this.setState({ categoryName: e.target.value }) }}>
-                              <option>Saúde</option>
-                              <option>Lazer</option>
-                              <option>Trabalho</option>
-                              <option>Doméstico</option>
-                              <option>Rotina</option>
+                            <label className="col-form-label mt-4" htmlFor="inputDescription">Descrição:</label>
+                            <input type="text" className="form-control" placeholder="Digite a Descrição da Tarefa" id="inputDescription" value={this.state.description} onChange={(e) => { this.setState({ description: e.target.value }) }} />
+
+
+                            <div className="form-group">
+                              <label htmlFor="selectPriority" className="form-label mt-4">Prioridade:</label>
+                              <select className="form-select" id="selectPriority" value={this.state.priority} onChange={(e) => { this.setState({ priority: e.target.value }) }}>
+                                <option>Selecione uma opção</option>
+                                <option>ALTA</option>
+                                <option>MÉDIA</option>
+                                <option>BAIXA</option>
+                              </select>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="col-form-label mt-4" htmlFor="inputCategoryId">Id da Categoria:</label>
+                              <input type="text" className="form-control" placeholder="Digite o Id da Categoria" id="inputCategoryId" value={this.state.categoryId} onChange={(e) => { this.setState({ categoryId: e.target.value }) }} />
+                            </div>
+
+                            <div className="form-group">
+                            <label htmlFor="selectStatus" className="form-label mt-4">Status da Tarefa:</label>
+                            <select className="form-select" id="selectStatus" value={this.state.status} onChange={(e) => { this.setState({ status: e.target.value }) }}>
+                              <option>Selecione uma opção</option>
+                              <option>PENDENTE</option>
+                              <option>EM_ANDAMENTO</option>
+                              <option>CONCLUÍDA</option>
                             </select>
                           </div>
-                          <br />
 
-                          <button onClick={this.update} type="button" className="btn btn-warning">
-                            <i className="pi pi-save"></i> Atualizar
-                          </button>
-                          <button onClick={this.cancel} type="button" className="btn btn-danger">
-                            <i className="pi pi-times"></i> Cancelar
-                          </button>
+                            <br />
 
+                            <button onClick={this.update} type="button" className="btn btn-warning">
+                              <i className="pi pi-save"></i> Atualizar
+                            </button>
+                            <button onClick={this.cancel} type="button" className="btn btn-danger">
+                              <i className="pi pi-times"></i> Cancelar
+                            </button>
+
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -72,20 +104,21 @@ class UpdateTask extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-      );
-    }
-  
-    styles = {
-      colMd6: {
-        position: 'relative',
-        left: '300px'
-      },
-      cardText: {
-        outerWidth: '20rem',
-        margin: '50px 0 0 0'
-      }
-    }
-  } 
+        </div >
+      </div>
 
-  export default withRouter(UpdateTask);
+    );
+  }
+
+  styles = {
+    colMd12: {
+      position: 'relative'
+    },
+    cardText: {
+      outerWidth: '20rem',
+      margin: '50px 0 0 0'
+    }
+  }
+}
+
+export default withRouter(UpdateTask);

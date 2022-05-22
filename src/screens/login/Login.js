@@ -28,7 +28,7 @@ class Login extends React.Component {
 
             <div className="container">
                 <div className='row'>
-                    <div className='col-md-6' style={this.styles.colMd6}>
+                    <div className='col-md-12' style={this.styles.colMd12}>
                         <div className="bs-docs-section">
 
                             <div className="card border-success mb-3" style={this.styles.cardBorder}>
@@ -42,12 +42,12 @@ class Login extends React.Component {
                                                 <form>
                                                     <fieldset>
                                                         <div className="form-group">
-                                                            <label htmlFor="exampleInputEmail1" className="form-label mt-4">Usuário:</label>
-                                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email" value={this.state.user} onChange={(e) => { this.setState({ user: e.target.value }) }} />
+                                                            <label htmlFor="inputEmail" className="form-label mt-4">Usuário:</label>
+                                                            <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite seu email" value={this.state.user} onChange={(e) => { this.setState({ user: e.target.value }) }} />
 
                                                             <div className="form-group">
-                                                                <label htmlFor="exampleInputPassword1" className="form-label mt-4">Senha:</label>
-                                                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
+                                                                <label htmlFor="inputPassword" className="form-label mt-4">Senha:</label>
+                                                                <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                             </div>
 
                                                             <br />
@@ -76,8 +76,7 @@ class Login extends React.Component {
 
     styles = {
         colMd6: {
-            position: 'relative',
-            left: '300px'
+            position: 'relative'
         },
         cardBorder: {
             outerWidth: '20rem',

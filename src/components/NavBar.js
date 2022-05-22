@@ -15,18 +15,14 @@ function NavBar(props) {
                         <NavBarItem href="/" label="Home" />
                         <NavBarItem href="/login" label="Login"/>
                         <NavBarItem href="/createCategory" label="Cadastrar Categoria"/>
-                        <NavBarItem href="/updateCategory" label="Atualizar Categoria"/>
+                        <NavBarItem href="/updateCategory/:id" label="Atualizar Categoria"/>
                         <NavBarItem href="/deleteCategory" label="Deletar Categoria"/>
-                        <NavBarItem href="/findCategory" label="Buscar Categoria"/>
+                        <NavBarItem href="/viewCategories" label="Categorias"/>
                         <NavBarItem href="/createTask" label="Cadastrar Tarefa"/>
-                        <NavBarItem href="/updateTask" label="Atualizar Tarefa"/>
+                        <NavBarItem href="/updateTask/:id" label="Atualizar Tarefa"/>
                         <NavBarItem href="/deleteTask" label="Deletar Tarefa"/>
-                        <NavBarItem href="/findTask" label="Buscar Tarefa"/>                      
+                        <NavBarItem href="/viewTasks" label="Tarefas"/>
                     </ul>
-                    {/* <form className="d-flex">
-                        <input className="form-control me-sm-2" type="text" placeholder="Buscar" />
-                            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                    </form> */}
                 </div>
             </div>
         </nav>

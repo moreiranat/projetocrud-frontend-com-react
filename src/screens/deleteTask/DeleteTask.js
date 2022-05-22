@@ -2,17 +2,25 @@ import React from 'react';
 import './DeleteTask.css';
 
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 class DeleteTask extends React.Component {
 
     state = {
-      description: "",
-      priority: "",
-      categoryName: ""
+      id: 0
     }
   
     delete = () => {
-      this.props.history.push('/deleteTask/DeleteTask');
+      axios.delete(`http://localhost:8080/api/categorytask/${this.state.id}`,
+      ).then(response => 
+        {
+          console.log(response);
+        }
+      ).catch(error => 
+        {
+          console.log(error.response);
+        }
+      );
     }
 
     cancel = () => {
@@ -24,11 +32,11 @@ class DeleteTask extends React.Component {
         
         <div className="container">
           <div className='row'>
-            <div className='col-md-6' style={this.styles.colMd6}>
+            <div className='col-md-12' style={this.styles.colMd12}>
               <div className="bs-docs-section">
 
                 <div className="card bg-light mb-3" style={this.styles.cardText}>
-                  <h3 className="card-header text-center">Deletar Tarefa</h3>
+                  <h3 className="card-header text-center">Exclusão de Tarefa</h3>
                   <div className="card-body">
   
                     <div className='row'>
@@ -36,26 +44,10 @@ class DeleteTask extends React.Component {
                         <div className='bs-component'>
   
                           <div className="form-group">
-                            <label className="col-form-label mt-4" htmlFor="inputDefault">Descrição:</label>
-                            <input type="text" className="form-control" placeholder="Descrição da Tarefa" id="inputDefault" value={this.state.description} onChange={(e) => { this.setState({ description: e.target.value }) }} />
+                            <label className="col-form-label mt-4" htmlFor="inputId">Id:</label>
+                            <input type="text" className="form-control" placeholder="Digite o Id da Tarefa" id="inputId" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                           </div>
-  
-                          <div className="form-group">
-                            <label className="col-form-label mt-4" htmlFor="inputDefault">Prioridade:</label>
-                            <input type="text" className="form-control" placeholder="Prioridade da Tarefa" id="inputDefault" value={this.state.priority} onChange={(e) => { this.setState({ priority: e.target.value }) }} />
-                          </div>
-  
-                          <div class="form-group">
-                            <label htmlFor="exampleSelect1" className="form-label mt-4">Nome da Categoria:</label>
-                            <select className="form-select" id="exampleSelect1" value={this.state.categoryName} onChange={(e) => { this.setState({ categoryName: e.target.value }) }}>
-                              <option>Selecione uma opção</option>
-                              <option>Lazer</option>
-                              <option>Saúde</option>
-                              <option>Trabalho</option>
-                              <option>Doméstico</option>
-                              <option>Rotina</option>
-                            </select>
-                          </div>
+
                           <br />
 
                           <button onClick={this.delete} type="button" className="btn btn-danger">
@@ -78,9 +70,8 @@ class DeleteTask extends React.Component {
     }
   
     styles = {
-      colMd6: {
-        position: 'relative',
-        left: '300px'
+      colMd12: {
+        position: 'relative'
       },
       cardText: {
         outerWidth: '20rem',
