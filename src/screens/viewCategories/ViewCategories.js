@@ -32,16 +32,16 @@ class ViewCategories extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id !== '') {
-            if (params !== '?') {
+        if (this.state.id != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.name !== '') {
-            if (params !== '?') {
+        if (this.state.name != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
