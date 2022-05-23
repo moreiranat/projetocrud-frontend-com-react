@@ -35,40 +35,40 @@ class ViewTasks extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id !== '') {
-            if (params !== '?') {
+        if (this.state.id != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.description !== '') {
-            if (params !== '?') {
+        if (this.state.description != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
             params = `${params}description=${this.state.description}`;
         }
 
-        if (this.state.priority !== '') {
-            if (params !== '?') {
+        if (this.state.priority != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
             params = `${params}priority=${this.state.priority}`;
         }
 
-        if (this.state.categoryId !== '') {
-            if (params !== '?') {
+        if (this.state.categoryId != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
             params = `${params}categoryId=${this.state.categoryId}`;
         }
 
-        if (this.state.status !== '') {
-            if (params !== '?') {
+        if (this.state.status != '') {
+            if (params != '?') {
                 params = `${params}&`;
             }
 
