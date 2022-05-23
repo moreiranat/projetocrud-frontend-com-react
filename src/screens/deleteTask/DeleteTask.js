@@ -11,7 +11,7 @@ class DeleteTask extends React.Component {
     }
   
     delete = () => {
-      axios.delete(`http://localhost:8080/api/categorytask/${this.state.id}`,
+      axios.delete(`http://localhost:8080/api/task/${this.state.id}`,
       ).then(response => 
         {
           console.log(response);
